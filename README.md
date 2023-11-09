@@ -1,3 +1,13 @@
-# startup_summaries
+# Summarising startups
 
-Viking raids, spanning from the late 8th to early 11th centuries, were a defining characteristic of the Viking Age. These raids were conducted by seafaring Norse warriors from Scandinavia who targeted coastal and riverine communities across Europe, and later, parts of North America. Driven by a quest for wealth, political ambition, and the lure of adventure, Vikings launched swift, surprise attacks on monasteries, towns, and villages, often looting valuable goods and taking captives. Their superior naval technology, alongside their fearsome reputation as warriors, facilitated these raids and instilled fear in the regions they targeted. Over time, Viking raids evolved from hit-and-run plundering expeditions to more organized military campaigns, some of which led to conquests and settlements in various regions including England, Ireland, and parts of France. The impacts of Viking raids were profound, instigating political, cultural, and economic changes in the medieval European landscape, and their legacy continues to be a significant part of the historical narrative of the early medieval period.
+Instructions:
+1. Install Poetry, if not already installed - https://python-poetry.org/docs/ 
+2. Use Poetry to install the packages and set up your environment using "poetry install" in the top path
+3. poetry run python app.py
+
+Notes:
+* Currently set up to only allow 3 companies to be processed due to Huggingface API limitations on free tier.
+* Intentionally used less topics for the same reason.
+
+Notion with project details:
+https://www.notion.so/Summarising-HTML-pages-for-company-summaries-8b1245f971c64906a6f274f027492e7f?pvs=4 
