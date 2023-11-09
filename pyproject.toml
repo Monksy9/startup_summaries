@@ -1,0 +1,26 @@
+[tool.poetry]
+name = "startup-summaries"
+version = "1.0.0"
+description = "Summarising startups using scraped content"
+authors = ["Ryan Monks"]
+license = "None"
+readme = "README.md"
+packages = [{include = "startup_summaries"}]
+
+[tool.poetry.dependencies]
+python = ">=3.9,<3.13"
+langchain = "^0.0.325"
+pandas = "^2.1.2"
+tldextract = "^5.0.1"
+langdetect = "^1.0.9"
+transformers = "^4.34.1"
+beautifulsoup4 = "^4.12.2"
+torch = "^2.1.0"
+openai = "^0.28.1"
+tiktoken = "^0.5.1"
+python-dotenv = "^1.0.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

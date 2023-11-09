@@ -33,9 +33,9 @@ def read_investor_interest_topics(file_path: str) -> List[str]:
 
 def summarise_companies(df: pd.DataFrame, llm: HuggingFaceHub, token_limit: int, investor_interest_topics: List[str]) -> pd.DataFrame:
     """Summarise information for each company, for each topic in the dataframe using the provided language model."""
-    companies = df['second_level_domain'].unique().head(SUBSAMPLE_COMPANIES)
+    companies = df['second_level_domain'].unique()
     summaries = pd.DataFrame()
-    for company in companies:  
+    for company in companies[0:SUBSAMPLE_COMPANIES + 1]:  
         print(f"Summarising for company: {company}")
         for topic in investor_interest_topics:
             print(f"Summarising for topic: {topic}")
