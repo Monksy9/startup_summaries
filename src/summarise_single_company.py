@@ -1,6 +1,6 @@
 import src.summarise_single_document as ssd
 
-def summarise_top_articles(company_df, language_model, token_limit, topic):
+def summarise_top_articles(company_df, language_model, token_limit, topic, top_n_articles):
     """
     Summarise the top articles for a company based on the number of slashes in the URL.
     
@@ -13,7 +13,7 @@ def summarise_top_articles(company_df, language_model, token_limit, topic):
     Returns:
     - list: A list of summaries for the top articles.
     """
-    top_articles_df = company_df.sort_values('slash_count').head(5)
+    top_articles_df = company_df.sort_values('slash_count').head(top_n_articles)
     
     summaries = [
         ssd.summarise_single_document(

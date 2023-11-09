@@ -14,7 +14,8 @@ FILE_PATH = 'investor_interest_topics.txt'
 TOKEN_LIMIT_MISTRAL_7B = 1024
 PATH_TO_CSV = 'task_sources.csv'
 OUTPUT_FILE = 'summaries.csv'
-
+TOP_N_ARTICLES = 5
+SUBSAMPLE_COMPANIES = 3
 
 def load_model() -> HuggingFaceHub:
     """Load the HuggingFaceHub model with the required API token and model parameters."""
@@ -32,14 +33,14 @@ def read_investor_interest_topics(file_path: str) -> List[str]:
 
 def summarise_companies(df: pd.DataFrame, llm: HuggingFaceHub, token_limit: int, investor_interest_topics: List[str]) -> pd.DataFrame:
     """Summarise information for each company, for each topic in the dataframe using the provided language model."""
-    companies = df['second_level_domain'].unique()
+    companies = df['second_level_domain'].unique().head(SUBSAMPLE_COMPANIES)
     summaries = pd.DataFrame()
-    for company in companies:  # Process all companies
+    for company in companies:  
         print(f"Summarising for company: {company}")
         for topic in investor_interest_topics:
             print(f"Summarising for topic: {topic}")
             filtered_df = df[df['second_level_domain'] == company]
-            company_summaries = ssc.summarise_top_articles(filtered_df, llm, token_limit, topic)
+            company_summaries = ssc.summarise_top_articles(filtered_df, llm, token_limit, topic, top_n_articles=TOP_N_ARTICLES)
             summaries.loc[company, topic] = ssd.summarise_summaries(company_summaries, llm, topic)
     return summaries
 
