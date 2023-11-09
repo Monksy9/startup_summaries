@@ -9,3 +9,6 @@ Instructions:
 Notes:
 * Currently set up to only allow 3 companies to be processed due to Huggingface API limitations on free tier.
 * Intentionally used less topics for the same reason.
+
+Notion with project details:
+https://www.notion.so/Summarising-HTML-pages-for-company-summaries-8b1245f971c64906a6f274f027492e7f?pvs=4 
